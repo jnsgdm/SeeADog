@@ -9,6 +9,9 @@ app.get('/',(req,res)=>{
     res.sendFile(__dirname + "/index.html")
 });
 
-app.listen(PORT,()=>{
-    console.log(`server running at localhost:${PORT}`);
+app.listen(process.env.PORT || PORT,(err)=>{
+    if(err){
+        return console.log(err);
+    }
+    console.log('server running...');
 })
